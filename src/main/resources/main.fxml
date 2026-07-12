@@ -99,13 +99,38 @@
                 <!-- Strength -->
 
                 <Label text="Password Strength"/>
-
-                <ProgressBar fx:id="strengthBar"
-                             progress="0"
-                             prefWidth="280"/>
-
-                <Label fx:id="strengthLabel"
-                       text="Not Generated"/>
+                        
+                        <ProgressBar fx:id="strengthBar"
+                                     progress="0"
+                                     prefWidth="280"/>
+                        
+                        <Label fx:id="strengthLabel"
+                               text="Not Generated"
+                               styleClass="strengthTitle"/>
+                        
+                        <GridPane hgap="10" vgap="8">
+                        
+                            <Label text="Strength"/>
+                        
+                            <Label fx:id="strengthPercentLabel"
+                                   text="0%"/>
+                        
+                            <Label text="Entropy"/>
+                        
+                            <Label fx:id="entropyLabel"
+                                   text="0 bits"/>
+                        
+                            <Label text="Character Variety"/>
+                        
+                            <Label fx:id="varietyLabel"
+                                   text="0/4"/>
+                        
+                            <Label text="Security Rating"/>
+                        
+                            <Label fx:id="securityLabel"
+                                   text="Unknown"/>
+                        
+                        </GridPane>
 
             </VBox>
 
