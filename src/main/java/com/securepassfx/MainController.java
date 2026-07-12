@@ -154,6 +154,28 @@ public class MainController {
     }
 
     // ==========================
+    private void updateProgressBarColor(double score) {
+
+            strengthBar.getStyleClass().removeAll(
+                    "weak-bar",
+                    "medium-bar",
+                    "strong-bar",
+                    "very-strong-bar"
+            );
+        
+            if(score < 0.25)
+                strengthBar.getStyleClass().add("weak-bar");
+        
+            else if(score < 0.50)
+                strengthBar.getStyleClass().add("medium-bar");
+        
+            else if(score < 0.90)
+                strengthBar.getStyleClass().add("strong-bar");
+        
+            else
+                strengthBar.getStyleClass().add("very-strong-bar");
+        
+        }
 
     private void generatePasswords() {
 
@@ -227,6 +249,7 @@ private void updateStrength() {
     );
 
 }
+    updateProgressBarColor(score);
     // ==========================
 
     private void copySelectedPassword() {
