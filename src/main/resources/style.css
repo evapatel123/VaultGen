@@ -254,3 +254,25 @@
     -fx-scale-x: 0.98;
     -fx-scale-y: 0.98;
 }
+/* Password Strength Colors */
+
+.weak-bar .bar {
+    -fx-background-color: #ef4444;
+}
+
+.medium-bar .bar {
+    -fx-background-color: #f59e0b;
+}
+
+.strong-bar .bar {
+    -fx-background-color: #22c55e;
+}
+
+.very-strong-bar .bar {
+    -fx-background-color: #16a34a;
+}
+
+.strengthTitle {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
