@@ -12,6 +12,17 @@ public class MainController {
     // ==========================
     // UI COMPONENTS
     // ==========================
+    @FXML
+    private Label strengthPercentLabel;
+    
+    @FXML
+    private Label entropyLabel;
+    
+    @FXML
+    private Label varietyLabel;
+    
+    @FXML
+    private Label securityLabel;
 
     @FXML
     private Slider lengthSlider;
@@ -179,24 +190,43 @@ public class MainController {
 
     // ==========================
 
-    private void updateStrength() {
+private void updateStrength() {
 
-        if(passwords.isEmpty())
-            return;
+    if(passwords.isEmpty())
+        return;
 
-        String password = passwords.get(0);
+    String password = passwords.get(0);
 
-        double score =
-                PasswordStrength.calculateScore(password);
+    double score =
+            PasswordStrength.calculateScore(password);
 
-        strengthBar.setProgress(score);
+    strengthBar.setProgress(score);
 
-        strengthLabel.setText(
-                PasswordStrength.getLabel(score)
-        );
+    strengthLabel.setText(
+            PasswordStrength.getLabel(score)
+    );
 
-    }
+    strengthPercentLabel.setText(
+            PasswordStrength.getPercentage(score) + "%"
+    );
 
+    double entropy =
+            PasswordStrength.calculateEntropy(password);
+
+    entropyLabel.setText(
+            String.format("%.1f bits", entropy)
+    );
+
+    varietyLabel.setText(
+            PasswordStrength.getCharacterVariety(password)
+                    + "/4"
+    );
+
+    securityLabel.setText(
+            PasswordStrength.getEntropyLabel(entropy)
+    );
+
+}
     // ==========================
 
     private void copySelectedPassword() {
