@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.securepassfx.MainController"
+            prefWidth="1000"
+            prefHeight="700">
+
+    <!-- ================= TOP ================= -->
+
+    <top>
+
+        <VBox spacing="15" styleClass="header">
+
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+
+            <Label text="🔐 SecurePassFX"
+                   styleClass="title"/>
+
+            <Label text="Modern Password Generator"
+                   styleClass="subtitle"/>
+
+        </VBox>
+
+    </top>
+
+    <!-- ================= CENTER ================= -->
+
+    <center>
+
+        <HBox spacing="20">
+
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+
+            <!-- LEFT SIDE -->
+
+            <VBox spacing="18"
+                  prefWidth="320"
+                  styleClass="card">
+
+                <Label text="Password Settings"
+                       styleClass="sectionTitle"/>
+
+                <!-- Length -->
+
+                <Label text="Password Length"/>
+
+                <Slider fx:id="lengthSlider"
+                        min="6"
+                        max="64"
+                        value="16"/>
+
+                <Label fx:id="lengthLabel"
+                       text="16 Characters"/>
+
+                <!-- Amount -->
+
+                <Label text="Number of Passwords"/>
+
+                <Spinner fx:id="amountSpinner"
+                         editable="true"/>
+
+                <Separator/>
+
+                <!-- Checkboxes -->
+
+                <CheckBox fx:id="uppercaseCheck"
+                          text="Uppercase Letters"
+                          selected="true"/>
+
+                <CheckBox fx:id="lowercaseCheck"
+                          text="Lowercase Letters"
+                          selected="true"/>
+
+                <CheckBox fx:id="numbersCheck"
+                          text="Numbers"
+                          selected="true"/>
+
+                <CheckBox fx:id="symbolsCheck"
+                          text="Symbols"
+                          selected="true"/>
+
+                <Separator/>
+
+                <!-- Generate -->
+
+                <Button fx:id="generateButton"
+                        text="Generate Passwords"
+                        maxWidth="Infinity"/>
+
+                <!-- Strength -->
+
+                <Label text="Password Strength"/>
+
+                <ProgressBar fx:id="strengthBar"
+                             progress="0"
+                             prefWidth="280"/>
+
+                <Label fx:id="strengthLabel"
+                       text="Not Generated"/>
+
+            </VBox>
+
+            <!-- RIGHT SIDE -->
+
+            <VBox spacing="18"
+                  HBox.hgrow="ALWAYS">
+
+                <!-- Generated Passwords -->
+
+                <VBox spacing="10"
+                      styleClass="card"
+                      VBox.vgrow="ALWAYS">
+
+                    <Label text="Generated Passwords"
+                           styleClass="sectionTitle"/>
+
+                    <ListView fx:id="passwordList"
+                              VBox.vgrow="ALWAYS"/>
+
+                    <HBox spacing="10">
+
+                        <Button fx:id="copyButton"
+                                text="📋 Copy"/>
+
+                        <Button fx:id="saveButton"
+                                text="💾 Save"/>
+
+                        <Button fx:id="clearButton"
+                                text="🗑 Clear"/>
+
+                    </HBox>
+
+                </VBox>
+
+                <!-- History -->
+
+                <VBox spacing="10"
+                      styleClass="card"
+                      VBox.vgrow="ALWAYS">
+
+                    <Label text="Password History"
+                           styleClass="sectionTitle"/>
+
+                    <TextField fx:id="searchField"
+                               promptText="Search History..."/>
+
+                    <ListView fx:id="historyList"
+                              VBox.vgrow="ALWAYS"/>
+
+                </VBox>
+
+            </VBox>
+
+        </HBox>
+
+    </center>
+
+    <!-- ================= BOTTOM ================= -->
+
+    <bottom>
+
+        <HBox spacing="10"
+              alignment="CENTER_RIGHT"
+              styleClass="footer">
+
+            <padding>
+                <Insets top="10" right="20" bottom="15" left="20"/>
+            </padding>
+
+            <Button fx:id="exportTxtButton"
+                    text="Export TXT"/>
+
+            <Button fx:id="exportCsvButton"
+                    text="Export CSV"/>
+
+            <Button fx:id="exportJsonButton"
+                    text="Export JSON"/>
+
+            <Region HBox.hgrow="ALWAYS"/>
+
+            <ToggleButton fx:id="themeToggle"
+                          text="🌙 Dark Mode"/>
+
+        </HBox>
+
+    </bottom>
+
+</BorderPane>
